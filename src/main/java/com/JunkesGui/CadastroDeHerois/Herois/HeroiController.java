@@ -2,11 +2,19 @@ package com.JunkesGui.CadastroDeHerois.Herois;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/herois")
 public class HeroiController {
 
-//    Adicionar Heroi
+    private HeroiService heroiService;
+    public HeroiController(HeroiService heroiService) {
+        this.heroiService = heroiService;
+    }
+
+    //    Adicionar Heroi
     @PostMapping("/adicionar")
     public String criarHeroi(){
         return "Criado com sucesso!";
@@ -14,14 +22,14 @@ public class HeroiController {
 
 //    Mostrar Heroi por ID
     @GetMapping("/todosid")
-    public String mostrarHeroiPorID(){
-    return "HeroiID";
+    public Optional<HeroiModel> mostrarHeroiPorID(){
+    return heroiService.mostrarHeroiPorID(1);
 }
 
 //    Mostrar lista de Herois
     @GetMapping("/todos")
-    public String mostrarListaHerois(){
-        return "Lista de Herois";
+    public List<HeroiModel> mostrarListaHerois(){
+        return heroiService.mostrarListaHerois();
     }
 
 //    Alterar dados de Heroi
