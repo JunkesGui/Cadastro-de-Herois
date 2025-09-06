@@ -37,9 +37,9 @@ public class HeroiController {
     }
 
 //    Deletar Heroi
-    @DeleteMapping("/apagarid")
-    public String apagarHeroiID(){
-        return "Apagado com sucesso!";
+    @DeleteMapping("/apagar/{id}")
+    public void apagarHeroiID(@PathVariable long id){
+       heroiService.apagarHeroiID(id);
     }
 
 }

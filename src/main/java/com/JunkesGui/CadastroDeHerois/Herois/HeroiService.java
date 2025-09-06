@@ -28,4 +28,10 @@ public class HeroiService {
     public HeroiModel criarHeroi(HeroiModel heroi){
         return heroiRepository.save(heroi);
     }
+
+//    Deletar heroi por ID
+    public void apagarHeroiID(long id){
+        heroiRepository.deleteById(id);
+    }
+
 }
