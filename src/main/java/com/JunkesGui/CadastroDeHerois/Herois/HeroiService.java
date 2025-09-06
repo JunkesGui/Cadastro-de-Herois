@@ -34,4 +34,12 @@ public class HeroiService {
         heroiRepository.deleteById(id);
     }
 
+//    Modificar heroi por ID
+    public HeroiModel alterarHeroiID(long id, HeroiModel heroiUpdated){
+        if(heroiRepository.existsById(id)){
+            heroiUpdated.setId(id);
+            return heroiRepository.save(heroiUpdated);
+        }
+        return null;
+    }
 }

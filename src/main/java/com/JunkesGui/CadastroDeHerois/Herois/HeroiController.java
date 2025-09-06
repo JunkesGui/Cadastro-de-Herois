@@ -31,9 +31,9 @@ public class HeroiController {
     }
 
 //    Alterar dados de Heroi
-    @PutMapping("/alterarid")
-    public String alterarHeroiID(){
-        return "Alterado com sucesso!";
+    @PutMapping("/alterarid/{id}")
+    public HeroiModel alterarHeroiID(@PathVariable long id, @RequestBody HeroiModel heroiUpdated){
+        return heroiService.alterarHeroiID(id, heroiUpdated);
     }
 
 //    Deletar Heroi
