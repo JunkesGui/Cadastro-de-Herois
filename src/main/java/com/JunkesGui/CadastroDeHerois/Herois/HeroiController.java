@@ -1,9 +1,7 @@
 package com.JunkesGui.CadastroDeHerois.Herois;
 
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/herois")
@@ -14,10 +12,10 @@ public class HeroiController {
         this.heroiService = heroiService;
     }
 
-    //    Adicionar Heroi
+//    Adicionar Heroi
     @PostMapping("/adicionar")
-    public String criarHeroi(){
-        return "Criado com sucesso!";
+    public HeroiModel criarHeroi(@RequestBody HeroiModel heroi){
+        return heroiService.criarHeroi(heroi);
     }
 
 //    Mostrar Heroi por ID

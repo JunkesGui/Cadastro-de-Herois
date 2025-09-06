@@ -23,4 +23,9 @@ public class HeroiService {
         Optional<HeroiModel> heroi = heroiRepository.findById(id);
         return heroi.orElse(null);
     }
+
+//    Criar novo heroi
+    public HeroiModel criarHeroi(HeroiModel heroi){
+        return heroiRepository.save(heroi);
+    }
 }
