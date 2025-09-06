@@ -21,9 +21,9 @@ public class HeroiController {
     }
 
 //    Mostrar Heroi por ID
-    @GetMapping("/todosid")
-    public Optional<HeroiModel> mostrarHeroiPorID(){
-    return heroiService.mostrarHeroiPorID(1);
+    @GetMapping("/todos/{id}")
+    public HeroiModel mostrarHeroiPorID(@PathVariable long id){
+    return heroiService.mostrarHeroiPorID(id);
 }
 
 //    Mostrar lista de Herois

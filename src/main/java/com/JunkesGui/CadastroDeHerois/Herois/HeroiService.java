@@ -19,7 +19,8 @@ public class HeroiService {
     }
 
 //    Mostrar heroi por id
-    public Optional<HeroiModel> mostrarHeroiPorID(long id){
-        return heroiRepository.findById(id);
+    public HeroiModel mostrarHeroiPorID(long id){
+        Optional<HeroiModel> heroi = heroiRepository.findById(id);
+        return heroi.orElse(null);
     }
 }
