@@ -1,6 +1,7 @@
 package com.JunkesGui.CadastroDeHerois.Missoes;
 
 import com.JunkesGui.CadastroDeHerois.Herois.HeroiModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,5 +24,6 @@ public class MissaoModel {
 
     //Uma missao, varios herois
     @OneToMany(mappedBy = "missao")
+    @JsonIgnore
     private List<HeroiModel> herois;
 }
