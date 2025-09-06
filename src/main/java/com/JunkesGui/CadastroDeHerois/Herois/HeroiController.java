@@ -3,13 +3,8 @@ package com.JunkesGui.CadastroDeHerois.Herois;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/herois")
 public class HeroiController {
-
-    @GetMapping("/boasvindas")
-    public String BemVindo() {
-        return "Bem Vindo a essa rota!";
-    }
 
 //    Adicionar Heroi
     @PostMapping("/adicionar")
