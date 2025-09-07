@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/herois")
 public class HeroiController {
 
-    private HeroiService heroiService;
+    private final HeroiService heroiService;
     public HeroiController(HeroiService heroiService) {
         this.heroiService = heroiService;
     }
