@@ -9,8 +9,11 @@ import java.util.Optional;
 public class HeroiService {
 
     private HeroiRepository heroiRepository;
-    public HeroiService(HeroiRepository heroiRepository) {
+    private HeroiMapper heroiMapper;
+
+    public HeroiService(HeroiRepository heroiRepository, HeroiMapper heroiMapper) {
         this.heroiRepository = heroiRepository;
+        this.heroiMapper = heroiMapper;
     }
 
 //    Mostrar todos os herois
@@ -25,8 +28,10 @@ public class HeroiService {
     }
 
 //    Criar novo heroi
-    public HeroiModel criarHeroi(HeroiModel heroi){
-        return heroiRepository.save(heroi);
+    public HeroiDTO criarHeroi(HeroiDTO heroiDTO){
+        HeroiModel heroi = heroiMapper.map(heroiDTO);
+        heroi = heroiRepository.save(heroi);
+        return heroiMapper.map(heroi);
     }
 
 //    Deletar heroi por ID

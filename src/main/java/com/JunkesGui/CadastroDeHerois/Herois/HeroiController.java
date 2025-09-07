@@ -14,7 +14,7 @@ public class HeroiController {
 
 //    Adicionar Heroi
     @PostMapping("/adicionar")
-    public HeroiModel criarHeroi(@RequestBody HeroiModel heroi){
+    public HeroiDTO criarHeroi(@RequestBody HeroiDTO heroi){
         return heroiService.criarHeroi(heroi);
     }
 
