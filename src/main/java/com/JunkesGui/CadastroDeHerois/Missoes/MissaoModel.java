@@ -2,6 +2,7 @@ package com.JunkesGui.CadastroDeHerois.Missoes;
 
 import com.JunkesGui.CadastroDeHerois.Herois.HeroiModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
