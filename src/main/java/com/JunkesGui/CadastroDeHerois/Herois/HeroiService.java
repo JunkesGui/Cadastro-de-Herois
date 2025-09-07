@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 @Service
 public class HeroiService {
 
-    private HeroiRepository heroiRepository;
-    private HeroiMapper heroiMapper;
+    private final HeroiRepository heroiRepository;
+    private final HeroiMapper heroiMapper;
 
     public HeroiService(HeroiRepository heroiRepository, HeroiMapper heroiMapper) {
         this.heroiRepository = heroiRepository;
