@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/herois")
 public class HeroiController {
 
-    private HeroiService heroiService;
+    private final HeroiService heroiService;
     public HeroiController(HeroiService heroiService) {
         this.heroiService = heroiService;
     }
@@ -54,7 +54,7 @@ public class HeroiController {
             description = "Rota para mostrar a tabela completa TB_CADASTRO")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
-                    description = "{TB_CADASTRO JSON}")
+                    description = "{TB_CADASTRO} JSON")
     })
     public ResponseEntity<List<HeroiDTO>> mostrarListaHerois(){
         List<HeroiDTO> listaHerois = heroiService.mostrarListaHerois();
