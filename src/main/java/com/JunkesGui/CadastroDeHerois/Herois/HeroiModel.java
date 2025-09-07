@@ -20,6 +20,7 @@ public class HeroiModel {
     private String nome;
     private String classe;
     private short rank;
+    private String equipamento;
 
     //Varios herois, uma missao
     @ManyToOne
