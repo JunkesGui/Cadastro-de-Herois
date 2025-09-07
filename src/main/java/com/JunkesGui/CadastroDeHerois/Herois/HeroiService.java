@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class HeroiService {
@@ -17,14 +18,17 @@ public class HeroiService {
     }
 
 //    Mostrar todos os herois
-    public List<HeroiModel> mostrarListaHerois(){
-        return heroiRepository.findAll();
+    public List<HeroiDTO> mostrarListaHerois(){
+        List<HeroiModel> herois = heroiRepository.findAll();
+        return herois.stream()
+                .map(heroiMapper::map)
+                .collect(Collectors.toList());
     }
 
 //    Mostrar heroi por id
-    public HeroiModel mostrarHeroiPorID(long id){
+    public HeroiDTO mostrarHeroiPorID(long id){
         Optional<HeroiModel> heroi = heroiRepository.findById(id);
-        return heroi.orElse(null);
+        return heroi.map(heroiMapper::map).orElse(null);
     }
 
 //    Criar novo heroi
@@ -40,10 +44,13 @@ public class HeroiService {
     }
 
 //    Modificar heroi por ID
-    public HeroiModel alterarHeroiID(long id, HeroiModel heroiUpdated){
-        if(heroiRepository.existsById(id)){
-            heroiUpdated.setId(id);
-            return heroiRepository.save(heroiUpdated);
+    public HeroiDTO alterarHeroiID(long id, HeroiDTO heroiUpdated){
+        Optional<HeroiModel> heroi = heroiRepository.findById(id);
+        if(heroi.isPresent()){
+            HeroiModel heroiModel = heroiMapper.map(heroiUpdated);
+            heroiModel.setId(id);
+            HeroiModel heroiSalvo = heroiRepository.save(heroiModel);
+            return heroiMapper.map(heroiSalvo);
         }
         return null;
     }

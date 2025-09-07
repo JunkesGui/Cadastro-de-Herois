@@ -20,19 +20,19 @@ public class HeroiController {
 
 //    Mostrar Heroi por ID
     @GetMapping("/todos/{id}")
-    public HeroiModel mostrarHeroiPorID(@PathVariable long id){
+    public HeroiDTO mostrarHeroiPorID(@PathVariable long id){
     return heroiService.mostrarHeroiPorID(id);
 }
 
 //    Mostrar lista de Herois
     @GetMapping("/todos")
-    public List<HeroiModel> mostrarListaHerois(){
+    public List<HeroiDTO> mostrarListaHerois(){
         return heroiService.mostrarListaHerois();
     }
 
 //    Alterar dados de Heroi
     @PutMapping("/alterarid/{id}")
-    public HeroiModel alterarHeroiID(@PathVariable long id, @RequestBody HeroiModel heroiUpdated){
+    public HeroiDTO alterarHeroiID(@PathVariable long id, @RequestBody HeroiDTO heroiUpdated){
         return heroiService.alterarHeroiID(id, heroiUpdated);
     }
 
